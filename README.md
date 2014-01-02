@@ -1,7 +1,10 @@
 Aruba::RSpec
 ============
 
-Aruba and ArubaDoubles are
+Aruba and ArubaDoubles are tools for testing command-line programs using
+Cucumber. They allow for setting up command stubs, then testing
+expectations on those stubs. This gem helps to integrate the two
+directly in RSpec.
 
 ## Installation
 
@@ -18,7 +21,7 @@ end
 Add `aruba-rspec` to your `spec_helper.rb` file as follows:
 
 ```ruby
-require 'aruba-rspec'
+require 'aruba/rspec'
 
 RSpec.configure do |config|
   config.include Aruba::RSpec
