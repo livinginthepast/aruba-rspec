@@ -1,5 +1,6 @@
 require 'aruba/rspec/version'
 
+require 'aruba'
 require 'aruba-doubles'
 require 'aruba/rspec/matchers'
 

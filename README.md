@@ -24,7 +24,7 @@ Add `aruba-rspec` to your `spec_helper.rb` file as follows:
 require 'aruba/rspec'
 
 RSpec.configure do |config|
-  config.include Aruba::RSpec
+  config.include ArubaDoubles
 
   config.before :each do
     Aruba::RSpec.setup
@@ -35,6 +35,9 @@ RSpec.configure do |config|
   end
 end
 ```
+
+Note that ArubaDoubles needs to be included into your RSpec
+configuration. This allows command doubles to be used.
 
 ## Command doubles
 
