@@ -7,4 +7,5 @@ group :development, :test do
   gem 'rspec'
   gem 'guard-rspec'
   gem 'guard-bundler'
+  gem 'pry-nav'
 end
