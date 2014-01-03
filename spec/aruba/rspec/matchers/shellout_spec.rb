@@ -17,7 +17,7 @@ describe 'shellout matcher' do
       double_cmd('thing')
       expect { `thing` }.to shellout('thing')
     end
-    
+
     it 'matches arguments' do
       double_cmd('thing')
       expect { `thing --with --stuff` }.to shellout('thing --with --stuff')
