@@ -77,6 +77,16 @@ describe MyThing do
 end
 ```
 
+### :have_exit_status
+
+```ruby
+it 'exits 50' do
+  double_cmd('thing', exit: 50)
+  expect {
+    `thing 1 2 3`
+  }.to have_exit_status(50)
+```
+
 ## References
 
 * `https://github.com/cucumber/aruba`
