@@ -5,11 +5,15 @@ RSpec::Matchers.define :shellout do |cmd|
     Aruba::RSpec.history.include?(cmd.shellsplit)
   end
 
-  failure_message_for_should do |ruby|
+  def supports_block_expectations?
+    true
+  end
+
+  failure_message do |ruby|
     "expected that code would run command #{cmd}\nfound: #{Aruba::RSpec.history.map(&:shelljoin)}"
   end
 
-  failure_message_for_should_not do |ruby|
+  failure_message_when_negated do |ruby|
     "expected that code would NOT run command #{cmd}"
   end
 

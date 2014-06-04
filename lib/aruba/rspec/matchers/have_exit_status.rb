@@ -5,11 +5,15 @@ RSpec::Matchers.define :have_exit_status do |status|
     $?.exitstatus == status
   end
 
-  failure_message_for_should do |ruby|
+  def supports_block_expectations?
+    true
+  end
+
+  failure_message do |ruby|
     "expected that code would exit #{status}"
   end
 
-  failure_message_for_should_not do |ruby|
+  failure_message_when_negated do |ruby|
     "expected that code would NOT exit #{status}"
   end
 

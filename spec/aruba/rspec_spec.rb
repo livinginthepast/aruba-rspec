@@ -9,14 +9,16 @@ describe Aruba::RSpec do
 
   describe '::setup' do
     it 'sets up ArubaDoubles' do
-      ArubaDoubles::Double.stub(:setup)
+      allow(ArubaDoubles::Double).to receive(:setup)
       Aruba::RSpec.setup
       expect(ArubaDoubles::Double).to have_received(:setup)
     end
   end
 
   describe '::teardown' do
-    before { ArubaDoubles::Double.stub(:teardown) }
+    before do
+      allow(ArubaDoubles::Double).to receive(:teardown)
+    end
 
     it 'tears down ArubaDoubles' do
       Aruba::RSpec.teardown
@@ -24,7 +26,7 @@ describe Aruba::RSpec do
     end
 
     it 'clears the history' do
-      Aruba::RSpec.history.stub(:clear)
+      allow(Aruba::RSpec.history).to receive(:clear)
       Aruba::RSpec.teardown
       expect(Aruba::RSpec.history).to have_received(:clear)
     end
